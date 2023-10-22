@@ -14,22 +14,22 @@ public class Funtions {
 
 
     public  static int checkInt() {
-         String s;
-         int i;
+        String s;
+        int i;
 
-         while (true) {
-             s = scanner.nextLine();
-             try {
-                 i = Integer.parseInt(s);
-                 if (0 < i && i < 100) {
-                     return i;
-                 }
-                 else
-                     System.out.println("유효한 숫자를 입력해주세요.");
-             } catch (NumberFormatException e) {
-                 System.out.println("숫자만 입력해주세요.");
-             }
-         }
+        while (true) {
+            s = scanner.nextLine();
+            try {
+                i = Integer.parseInt(s);
+                if (0 < i && i < 100) {
+                    return i;
+                }
+                else
+                    System.out.println("유효한 숫자를 입력해주세요.");
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력해주세요.");
+            }
+        }
     }
 
     public static void showMenu() {
@@ -127,45 +127,15 @@ public class Funtions {
 
     }
 
-    public static int orderFinal (int clientNum) {
-        int i = Funtions.checkInt();
-
-        switch (i){
-            case 1 -> {
-                System.out.println("주문이 완료되었습니다!");
-                System.out.printf("대기번호는 [ %d ] 번 입니다.", clientNum);
-
-                return 5;
-            }
-            case 2 -> {
-                return 5;
-            }
-            default -> {
-                System.out.println("올바른 숫자를 입력해 주세요.");
-                return orderFinal(clientNum);
-            }
-
-
-        }
+    public static void orderFinal (int clientNum) {
+        System.out.println("주문이 완료되었습니다!");
+        System.out.printf("대기번호는 [ %d ] 번 입니다.", clientNum);
     }
 
-//    public static int ordered(int phaseControler) {
-//        int i;
-//
-//        System.out.println("정말로 주문을 취소하시겠습니까?");
-//        System.out.println("장바구니가 초기화 됩니다.");
-//        System.out.printf("%s | %s", "1. 주문 취소하기", "2. 계속 주문하기");
-//
-//        i = checkInt();
-//
-//        return switch (i) {
-//            case 1 -> 4;
-//            case 2 -> phaseControler;
-//            default -> {
-//                System.out.println("올바른 숫자를 입력해주세요." + '\n');
-//                yield  checkExit(phaseControler);
-//            }
-//        };
-//    }
+    public static boolean checkNothing(List<Menu> cart) {
+        return cart.isEmpty();
+    }
 
 }
+
+

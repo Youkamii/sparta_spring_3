@@ -61,12 +61,29 @@ public class Main {
                     break;
                 case 3 :
                     Phase.orderMenu(cart);
-                    phaseController = Funtions.orderFinal(clientNum++);
-                    cart.clear();
-                    break;
+                    int checkOrder = Funtions.checkInt();
+                    if (checkOrder == 1) {
+                        if (Funtions.checkNothing(cart)) {
+                            System.out.println("장바구니가 비어있습니다. 메인 메뉴로 이동합니다.");
+                            phaseController = 5;
+                        } else {
+                            Funtions.orderFinal(clientNum++);
+                            cart.clear();
+                            phaseController = 5;
+                        }
+                        break;
+                    }
+                    else if (checkOrder == 2) {
+                        phaseController = 5;
+                        break;
+                    }
+                    else {
+                        System.out.println("올바른 숫자를 입력해주세요.");
+                        break;
+                    }
                 case 4 :
-                    int checkclear = Funtions.checkExit(phaseController);
-                    if (checkclear == 1) {
+                    int checkClear = Funtions.checkExit(phaseController);
+                    if (checkClear == 1) {
                         System.out.println('\n' + "다음에 또 방문해주세요.");
                         cart.clear();
                     }
